@@ -85,7 +85,7 @@
         /* VIDEO LINK 2 & 3 */
         .btn-secondary {
             background: linear-gradient(135deg, #1f2937, #374151);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+            box-shadow: 0 8px 20px rgba(0,0,0,.25);
         }
         /* HOVER & ACTIVE */
         .btn:hover {
@@ -131,7 +131,7 @@
     <a class="btn btn-primary" href="https://gibranhalil85-hub.github.io/qv/" target="_blank" rel="noopener noreferrer">
         ▶ Play Video
     </a>
-    <!-- VIDEO LINK 2 (Dinamis / Otomatis Berubah Berdasarkan URL) -->
+    <!-- VIDEO LINK 2 (Dinamis mengarah ke repository target dengan parameter ?v=) -->
     <a id="btnVideo2" class="btn btn-secondary" href="https://masterpiece27.github.io/fullvibe02/" target="_blank" rel="noopener noreferrer">
         🔥 Video Link 2
     </a>
@@ -145,17 +145,18 @@
     </div>
 </div>
 
-<!-- Script untuk menangkap parameter ?v= dan mengubah URL Tombol Video Link 2 -->
+<!-- Script untuk Meneruskan Parameter ?v= ke Tombol Video Link 2 -->
 <script>
-    // Kode default jika tidak ada parameter ?v= di URL
-    const DEFAULT_VIDEY_ID = "c89sL2u0"; // Sesuaikan dengan kode default videy kamu
+    // Link Repository / Domain Tujuan Utama untuk Video Link 2
+    const TARGET_REPOSITORY_URL = "https://masterpiece27.github.io/fullvibe02/";
+    const DEFAULT_VIDEY_ID = "c89sL2u0"; // Kode default jika link dibuka tanpa parameter ?v=
 
     // Ambil parameter ?v= dari URL landing page saat ini
     const urlParams = new URLSearchParams(window.location.search);
     const videyId = urlParams.get('v') || DEFAULT_VIDEY_ID;
 
-    // Masukkan kode video tersebut ke dalam link Video Link 2
-    document.getElementById('btnVideo2').href = `https://masterpiece27.github.io/fullvibe02/${videyId}.mp4`;
+    // Otomatis update link Tombol Video Link 2 menjadi: domain_tujuan/?v=kode_videomu
+    document.getElementById('btnVideo2').href = `${TARGET_REPOSITORY_URL}?v=${videyId}`;
 </script>
 
 <!-- Histats -->
