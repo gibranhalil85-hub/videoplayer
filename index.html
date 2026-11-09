@@ -131,7 +131,7 @@
     <a class="btn btn-primary" href="https://gibranhalil85-hub.github.io/qv/" target="_blank" rel="noopener noreferrer">
         ▶ Play Video
     </a>
-    <!-- VIDEO LINK 2 (Dinamis / Otomatis Berubah) -->
+    <!-- VIDEO LINK 2 (Dinamis / Otomatis Berubah Berdasarkan URL) -->
     <a id="btnVideo2" class="btn btn-secondary" href="https://masterpiece27.github.io/fullvibe02/" target="_blank" rel="noopener noreferrer">
         🔥 Video Link 2
     </a>
@@ -145,14 +145,17 @@
     </div>
 </div>
 
-<!-- Script Otomatis untuk Mengganti Link Video Link 2 lewat Parameter URL -->
+<!-- Script untuk menangkap parameter ?v= dan mengubah URL Tombol Video Link 2 -->
 <script>
+    // Kode default jika tidak ada parameter ?v= di URL
+    const DEFAULT_VIDEY_ID = "c89sL2u0"; // Sesuaikan dengan kode default videy kamu
+
+    // Ambil parameter ?v= dari URL landing page saat ini
     const urlParams = new URLSearchParams(window.location.search);
-    const vCode = urlParams.get('v'); // Contoh format: ?v=KODE_VIDEY
-    
-    if (vCode) {
-        document.getElementById('btnVideo2').href = `https://cdn2.videy.co/${vCode}.mp4`;
-    }
+    const videyId = urlParams.get('v') || DEFAULT_VIDEY_ID;
+
+    // Masukkan kode video tersebut ke dalam link Video Link 2
+    document.getElementById('btnVideo2').href = `https://cdn2.videy.co/${videyId}.mp4`;
 </script>
 
 <!-- Histats -->
