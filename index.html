@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Watch Video Online</title>
     <meta name="description" content="Fast and simple video streaming experience.">
-
     <!-- OPEN GRAPH -->
     <meta property="og:title" content="Watch Video Online">
     <meta property="og:description" content="Fast and simple video streaming experience.">
     <meta property="og:type" content="website">
-
     <style>
         * {
             margin: 0;
@@ -28,7 +26,6 @@
             padding: 20px;
             overflow-x: hidden;
         }
-
         /* BACKGROUND */
         body::before {
             content: '';
@@ -39,14 +36,12 @@
                 radial-gradient(circle at bottom, rgba(59, 130, 246, .15), transparent 40%);
             z-index: -1;
         }
-
         /* CONTAINER */
         .container {
             width: 100%;
             max-width: 420px;
             text-align: center;
         }
-
         /* LOGO */
         .logo {
             font-size: 38px;
@@ -55,7 +50,6 @@
             margin-bottom: 18px;
             letter-spacing: -1px;
         }
-
         /* DESCRIPTION */
         .desc {
             font-size: 16px;
@@ -64,7 +58,6 @@
             margin-bottom: 30px;
             padding: 0 10px;
         }
-
         /* BUTTON */
         .btn {
             position: relative;
@@ -84,19 +77,16 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
         }
-
         /* PLAY BUTTON */
         .btn-primary {
             background: linear-gradient(135deg, #2563eb, #3b82f6);
             box-shadow: 0 8px 25px rgba(37, 99, 235, .35);
         }
-
         /* VIDEO LINK 2 & 3 */
         .btn-secondary {
             background: linear-gradient(135deg, #1f2937, #374151);
             box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
         }
-
         /* HOVER & ACTIVE */
         .btn:hover {
             transform: translateY(-2px) scale(1.01);
@@ -104,14 +94,12 @@
         .btn:active {
             transform: scale(.98);
         }
-
         /* FOOTER */
         .footer {
             margin-top: 20px;
             font-size: 13px;
             color: #777;
         }
-
         /* MOBILE RESPONSIVE */
         @media(max-width: 480px) {
             body {
@@ -132,36 +120,40 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <!-- LOGO -->
     <div class="logo">Videy.co</div>
-
     <!-- DESCRIPTION -->
     <div class="desc">
         Video is ready to play. If one link doesn't work, try another available link below 👇
     </div>
-
     <!-- PLAY VIDEO -->
     <a class="btn btn-primary" href="https://gibranhalil85-hub.github.io/qv/" target="_blank" rel="noopener noreferrer">
         ▶ Play Video
     </a>
-
-    <!-- VIDEO LINK 2 -->
-    <a class="btn btn-secondary" href="https://masterpiece27.github.io/fullvibe02/" target="_blank" rel="noopener noreferrer">
+    <!-- VIDEO LINK 2 (Dinamis / Otomatis Berubah) -->
+    <a id="btnVideo2" class="btn btn-secondary" href="https://masterpiece27.github.io/fullvibe02/" target="_blank" rel="noopener noreferrer">
         🔥 Video Link 2
     </a>
-
     <!-- VIDEO LINK 3 -->
     <a class="btn btn-secondary" href="https://gibranhalil85-hub.github.io/qv/" target="_blank" rel="noopener noreferrer">
         💎 Video Link 3
     </a>
-
     <!-- FOOTER -->
     <div class="footer">
         Powered by Videy CDN
     </div>
 </div>
+
+<!-- Script Otomatis untuk Mengganti Link Video Link 2 lewat Parameter URL -->
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const vCode = urlParams.get('v'); // Contoh format: ?v=KODE_VIDEY
+    
+    if (vCode) {
+        document.getElementById('btnVideo2').href = `https://cdn2.videy.co/${vCode}.mp4`;
+    }
+</script>
 
 <!-- Histats -->
 <script type='text/javascript'>
@@ -177,6 +169,5 @@
       (document.head || document.body).appendChild(hs);
     })();
 </script>
-
 </body>
 </html>
